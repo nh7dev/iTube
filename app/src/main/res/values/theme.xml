@@ -1,0 +1,17 @@
+<resources>
+
+    <style name="Main.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/ytblack</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/icon_splash</item>
+        <!--
+        <item name="windowSplashScreenAnimationDuration">500</item>
+        <item name="windowSplashScreenIconBackgroundColor">@color/ytred</item>
+        -->
+        <item name="postSplashScreenTheme">@style/Main.App</item>
+    </style>
+
+    <style name="Main.App" parent="android:Theme.Material.NoActionBar">
+
+    </style>
+
+</resources>
