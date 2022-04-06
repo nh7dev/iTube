@@ -5,16 +5,18 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.OutlinedTextField
-import androidx.compose.material.Switch
-import androidx.compose.material.TabRowDefaults.Divider
+import androidx.compose.material3.Button
+import androidx.compose.material3.Divider
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
-import dev.nh7.itube.Setting
+import dev.nh7.itube.utils.Setting
 
 
 @Composable
@@ -39,7 +41,7 @@ fun SettingsComponent(
             }
         )
 
-        Divider(modifier = Modifier.padding(16.dp))
+        Divider(modifier = Modifier.padding(vertical = 16.dp))
 
         val setting2 = Setting.DOWNLOAD_BUFFER_SIZE
         val settingValue2 = getSettingValue(setting2)
@@ -57,10 +59,17 @@ fun SettingsComponent(
 private fun SwitchSetting(name: String, value: Boolean, onValueChange: (Boolean) -> Unit) {
     Row(verticalAlignment = Alignment.CenterVertically) {
         Text(text = name, maxLines = 1, modifier = Modifier.weight(1f))
-        Switch(
+        val enabled = remember { mutableStateOf(value) }
+        Button(onClick = {
+            enabled.value = !enabled.value
+            onValueChange(enabled.value)
+        }) {
+            Text(text = if (enabled.value) "On" else "Off")
+        }
+        /*Switch(
             checked = value,
             onCheckedChange = onValueChange
-        )
+        )*/
     }
 }
 

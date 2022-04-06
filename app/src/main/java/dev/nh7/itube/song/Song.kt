@@ -1,4 +1,4 @@
-package dev.nh7.itube
+package dev.nh7.itube.song
 
 import android.content.ContentUris
 import android.net.Uri

@@ -1,7 +1,7 @@
-package dev.nh7.itube.browser
+package dev.nh7.itube.download
 
-import dev.nh7.itube.AudioFileManager
-import dev.nh7.itube.Song
+import dev.nh7.itube.song.Song
+import dev.nh7.itube.song.SongManager
 import dev.nh7.itube.utils.LOG
 import java.net.URL
 import java.nio.channels.Channels
@@ -30,7 +30,7 @@ class YoutubeDownload(downloadInfo: YoutubeDownloadInfo) {
     }
 
     fun start(
-        audioFileManager: AudioFileManager,
+        songManager: SongManager,
         buffer: Long,
         onUpdateProgress: (progress: Long) -> Unit
     ): Song? {
@@ -40,8 +40,8 @@ class YoutubeDownload(downloadInfo: YoutubeDownloadInfo) {
 
         onUpdateProgress(0L)
 
-        val song = audioFileManager.createFile(fileName) ?: return null
-        val outputStream = audioFileManager.openFile(song) ?: return null
+        val song = songManager.createFile(fileName) ?: return null
+        val outputStream = songManager.openFile(song) ?: return null
 
         outputStream.use { output ->
 

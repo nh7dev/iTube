@@ -3,6 +3,7 @@ package dev.nh7.itube.browser
 import android.content.Context
 import android.net.Uri
 import android.webkit.WebView
+import dev.nh7.itube.download.YoutubeDownloadInfo
 import dev.nh7.itube.utils.LOG
 
 class Browser(context: Context, val onUpdateDownloadInfo: (YoutubeDownloadInfo?) -> Unit) :

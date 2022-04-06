@@ -18,7 +18,6 @@ import androidx.core.content.ContextCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import dev.nh7.itube.ui.components.MainComponent
 import dev.nh7.itube.ui.theme.MainTheme
-import dev.nh7.itube.ui.theme.MainTheme3
 import dev.nh7.itube.utils.LOG
 
 class MainActivity : ComponentActivity() {
@@ -38,22 +37,20 @@ class MainActivity : ComponentActivity() {
             }
 
         setContent {
-            MainTheme3 {
-                MainTheme {
+            MainTheme {
 
-                    MainComponent()
+                MainComponent()
 
-                    val permission = missingPermission.value
-                    if (permission != null) {
-                        PermissionsDialog(
-                            permission = permission.replace("android.permission.", ""),
-                            onClickAllow = {
-                                permissionRequest.launch(permission)
-                            }
-                        )
-                    }
-
+                val permission = missingPermission.value
+                if (permission != null) {
+                    PermissionsDialog(
+                        permission = permission.replace("android.permission.", ""),
+                        onClickAllow = {
+                            permissionRequest.launch(permission)
+                        }
+                    )
                 }
+
             }
         }
     }

@@ -9,7 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
 import dev.nh7.itube.MainViewModel
-import dev.nh7.itube.Screen
+import dev.nh7.itube.utils.Screen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

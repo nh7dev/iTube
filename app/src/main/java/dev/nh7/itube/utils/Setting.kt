@@ -1,4 +1,4 @@
-package dev.nh7.itube;
+package dev.nh7.itube.utils;
 
 enum class Setting(val displayName: String, val default: String) {
 

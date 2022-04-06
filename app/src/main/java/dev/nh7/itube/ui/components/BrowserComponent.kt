@@ -7,7 +7,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.viewinterop.AndroidView
 import dev.nh7.itube.MainApplication
 import dev.nh7.itube.browser.Browser
-import dev.nh7.itube.browser.YoutubeDownloadInfo
+import dev.nh7.itube.download.YoutubeDownloadInfo
 
 
 @Composable

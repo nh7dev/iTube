@@ -5,9 +5,13 @@ import android.content.Context
 import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.AndroidViewModel
-import dev.nh7.itube.browser.YoutubeDownload
-import dev.nh7.itube.browser.YoutubeDownloadInfo
-import dev.nh7.itube.utils.*
+import dev.nh7.itube.download.YoutubeDownload
+import dev.nh7.itube.download.YoutubeDownloadInfo
+import dev.nh7.itube.song.Song
+import dev.nh7.itube.song.SongManager
+import dev.nh7.itube.utils.LOG
+import dev.nh7.itube.utils.Screen
+import dev.nh7.itube.utils.Setting
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -55,7 +59,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         Thread {
 
             val song = download.start(
-                audioFileManager = audioFileManager,
+                songManager = audioFileManager,
                 buffer = getPreference(Setting.DOWNLOAD_BUFFER_SIZE).toLong() * 1000L, //size in bytes
                 onUpdateProgress = { progress ->
                     currentProgress.value = progress
@@ -97,7 +101,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val currentDownloadsList = mutableStateOf(emptyList<Song>())
     private var hasLoadedCurrentDownloadsList = false
 
-    private val audioFileManager = AudioFileManager(getApplication())
+    private val audioFileManager = SongManager(getApplication())
 
     fun getDownloadsList(): List<Song> {
         if (!hasLoadedCurrentDownloadsList) {

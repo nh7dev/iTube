@@ -1,4 +1,6 @@
-package dev.nh7.itube;
+package dev.nh7.itube.utils;
+
+import dev.nh7.itube.R
 
 enum class Screen(val displayName: String, val icon: Int, val showInNavigationBar: Boolean) {
 

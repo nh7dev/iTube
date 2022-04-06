@@ -6,7 +6,7 @@ import androidx.compose.material3.SmallTopAppBar
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.painterResource
-import dev.nh7.itube.Screen
+import dev.nh7.itube.utils.Screen
 
 
 @Composable

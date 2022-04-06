@@ -1,4 +1,4 @@
-package dev.nh7.itube;
+package dev.nh7.itube.song;
 
 import android.content.ContentValues
 import android.content.Context
@@ -11,7 +11,7 @@ import dev.nh7.itube.utils.LOG
 import java.io.File
 import java.io.FileOutputStream
 
-class AudioFileManager(private val context: Context) {
+class SongManager(private val context: Context) {
 
     fun getFiles(): MutableList<Song> {
         val contentResolver = context.contentResolver

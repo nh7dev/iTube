@@ -1,4 +1,4 @@
-package dev.nh7.itube.browser
+package dev.nh7.itube.download
 
 import android.net.Uri
 
